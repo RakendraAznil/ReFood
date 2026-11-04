@@ -9,7 +9,8 @@ class Makanan {
   String hargaAsli;
   IconData icon;
   Color warnaBg;
- 
+  String? gambar;
+
   Makanan({
     required this.nama,
     required this.kantin,
@@ -19,6 +20,6 @@ class Makanan {
     required this.hargaAsli,
     required this.icon,
     required this.warnaBg,
+    this.gambar,
   });
 }
- 

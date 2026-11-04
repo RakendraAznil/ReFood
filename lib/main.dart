@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-
-import 'views/dashboard_page_admin.dart';
+import 'views/widgets/user/home_page_user.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Dashboard Admin',
-      home: DashboardPage(),
+      title: 'ReFood',
+      home: const HomePageUser(),
     );
   }
 }
