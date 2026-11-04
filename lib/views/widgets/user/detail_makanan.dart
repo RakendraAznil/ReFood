@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../mahasiswa/order_form_page.dart';
 import '/models/makanan_model.dart';
 import '/utils/app_colors.dart';
 
@@ -287,50 +287,54 @@ class DetailMakanan extends StatelessWidget {
     );
   }
 
-  Widget _tombolPesan(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.08),
-            blurRadius: 8,
-            offset: const Offset(0, -2),
+  
+Widget _tombolPesan(BuildContext context) {
+  return Container(
+    padding: const EdgeInsets.all(18),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.08),
+          blurRadius: 8,
+          offset: const Offset(0, -2),
+        ),
+      ],
+    ),
+    child: SizedBox(
+      width: double.infinity,
+      height: 50,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.primary,
+          foregroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
           ),
-        ],
-      ),
-      child: SizedBox(
-        width: double.infinity,
-        height: 50,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.primary,
-            foregroundColor: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-          onPressed: makanan.stok > 0
-              ? () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text(
-                        'Fitur pemesanan akan tersedia pada tahap berikutnya.',
-                      ),
+        ),
+        onPressed: makanan.stok > 0
+            ? () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => OrderFormPage(
+                      makanan: makanan,
+                      customerName: 'Mahasiswa',
                     ),
-                  );
-                }
-              : null,
-          child: Text(
-            makanan.stok > 0 ? 'Pesan Sekarang' : 'Stok Habis',
-            style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-            ),
+                  ),
+                );
+              }
+            : null,
+        child: Text(
+          makanan.stok > 0 ? 'Pesan Sekarang' : 'Stok Habis',
+          style: const TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
+
 }
