@@ -43,11 +43,11 @@ class _MainPageState extends State<MainPage> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.dashboard),
-            label: 'FR-03 Memantau',
+            label: 'Memantau',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.people),
-            label: 'FR-02 Pengguna',
+            label: 'Pengguna',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.logout, color: AppColors.redUrgent),

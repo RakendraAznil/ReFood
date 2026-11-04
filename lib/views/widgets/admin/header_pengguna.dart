@@ -27,7 +27,7 @@ class HeaderPengguna extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'FR-02 Pengelolaan Entitas Terdaftar',
+                  'Pengelolaan Entitas Terdaftar',
                   style: TextStyle(fontSize: 12, color: AppColors.textGray),
                 ),
               ],

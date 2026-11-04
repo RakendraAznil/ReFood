@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'views/dashboard_page_admin.dart';
+import 'views/page_admin.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Dashboard Admin',
-      home: DashboardPage(),
+      home: MainPage(),
     );
   }
 }
