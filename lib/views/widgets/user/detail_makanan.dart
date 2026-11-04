@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '/models/makanan_model.dart';
 import '/utils/app_colors.dart';
+import '../../mahasiswa/order_form_page.dart';
 
 class DetailMakanan extends StatelessWidget {
   final Makanan makanan;
@@ -291,10 +292,12 @@ class DetailMakanan extends StatelessWidget {
           ),
           onPressed: makanan.stok > 0
               ? () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text(
-                        'Fitur pemesanan akan tersedia pada tahap berikutnya.',
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => OrderFormPage(
+                        makanan: makanan,
+                        customerName: 'Mahasiswa',
                       ),
                     ),
                   );
