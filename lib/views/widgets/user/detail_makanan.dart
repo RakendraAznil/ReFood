@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../mahasiswa/order_form_page.dart';
+
 import '/models/makanan_model.dart';
 import '/utils/app_colors.dart';
 
 class DetailMakanan extends StatelessWidget {
   final Makanan makanan;
 
-  const DetailMakanan({
-    super.key,
-    required this.makanan,
-  });
+  const DetailMakanan({super.key, required this.makanan});
 
   @override
   Widget build(BuildContext context) {
@@ -71,11 +68,7 @@ class DetailMakanan extends StatelessWidget {
                     );
                   },
                 )
-              : Icon(
-                  makanan.icon,
-                  size: 90,
-                  color: AppColors.primaryDark,
-                ),
+              : Icon(makanan.icon, size: 90, color: AppColors.primaryDark),
         ),
 
         // TOMBOL KEMBALI
@@ -85,10 +78,7 @@ class DetailMakanan extends StatelessWidget {
           child: CircleAvatar(
             backgroundColor: Colors.white,
             child: IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-                color: AppColors.textBlack,
-              ),
+              icon: const Icon(Icons.arrow_back, color: AppColors.textBlack),
               onPressed: () => Navigator.pop(context),
             ),
           ),
@@ -99,10 +89,7 @@ class DetailMakanan extends StatelessWidget {
           bottom: 15,
           left: 15,
           child: Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 12,
-              vertical: 7,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
             decoration: BoxDecoration(
               color: AppColors.redUrgent,
               borderRadius: BorderRadius.circular(8),
@@ -146,10 +133,7 @@ class DetailMakanan extends StatelessWidget {
             Expanded(
               child: Text(
                 makanan.kantin,
-                style: const TextStyle(
-                  fontSize: 13,
-                  color: AppColors.textGray,
-                ),
+                style: const TextStyle(fontSize: 13, color: AppColors.textGray),
               ),
             ),
           ],
@@ -202,10 +186,7 @@ class DetailMakanan extends StatelessWidget {
           const SizedBox(height: 5),
           Text(
             'Hemat ${makanan.diskon}% dari harga asli',
-            style: const TextStyle(
-              fontSize: 12,
-              color: AppColors.primaryDark,
-            ),
+            style: const TextStyle(fontSize: 12, color: AppColors.primaryDark),
           ),
         ],
       ),
@@ -251,10 +232,7 @@ class DetailMakanan extends StatelessWidget {
               ],
             ),
           ),
-          const Icon(
-            Icons.check_circle,
-            color: AppColors.primary,
-          ),
+          const Icon(Icons.check_circle, color: AppColors.primary),
         ],
       ),
     );
@@ -287,54 +265,47 @@ class DetailMakanan extends StatelessWidget {
     );
   }
 
-  
-Widget _tombolPesan(BuildContext context) {
-  return Container(
-    padding: const EdgeInsets.all(18),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black.withOpacity(0.08),
-          blurRadius: 8,
-          offset: const Offset(0, -2),
-        ),
-      ],
-    ),
-    child: SizedBox(
-      width: double.infinity,
-      height: 50,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primary,
-          foregroundColor: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+  Widget _tombolPesan(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.08),
+            blurRadius: 8,
+            offset: const Offset(0, -2),
           ),
-        ),
-        onPressed: makanan.stok > 0
-            ? () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => OrderFormPage(
-                      makanan: makanan,
-                      customerName: 'Mahasiswa',
+        ],
+      ),
+      child: SizedBox(
+        width: double.infinity,
+        height: 50,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.primary,
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+          onPressed: makanan.stok > 0
+              ? () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                        'Fitur pemesanan akan tersedia pada tahap berikutnya.',
+                      ),
                     ),
-                  ),
-                );
-              }
-            : null,
-        child: Text(
-          makanan.stok > 0 ? 'Pesan Sekarang' : 'Stok Habis',
-          style: const TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.bold,
+                  );
+                }
+              : null,
+          child: Text(
+            makanan.stok > 0 ? 'Pesan Sekarang' : 'Stok Habis',
+            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
         ),
       ),
-    ),
-  );
-}
-
+    );
+  }
 }

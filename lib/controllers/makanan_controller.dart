@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/makanan_model.dart';
 
 class MakananController extends ChangeNotifier {
@@ -12,7 +13,8 @@ class MakananController extends ChangeNotifier {
       hargaAsli: '16000',
       icon: Icons.rice_bowl,
       warnaBg: const Color(0xFFFFE0B2),
-      gambar: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600',
+      gambar:
+          'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600',
     ),
     Makanan(
       nama: 'Risol Mayo Ayam',
@@ -23,7 +25,8 @@ class MakananController extends ChangeNotifier {
       hargaAsli: '2500',
       icon: Icons.fastfood,
       warnaBg: const Color(0xFFFFE0B2),
-      gambar: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600',
+      gambar:
+          'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600',
     ),
     Makanan(
       nama: 'Nasi Goreng Spesial',
@@ -34,7 +37,8 @@ class MakananController extends ChangeNotifier {
       hargaAsli: '17000',
       icon: Icons.rice_bowl,
       warnaBg: const Color(0xFFFFE0B2),
-      gambar: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=600',
+      gambar:
+          'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=600',
     ),
     Makanan(
       nama: 'Ayam Crispy',
@@ -45,7 +49,8 @@ class MakananController extends ChangeNotifier {
       hargaAsli: '18000',
       icon: Icons.fastfood,
       warnaBg: const Color(0xFFFFE0B2),
-      gambar: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600',
+      gambar:
+          'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600',
     ),
   ];
 
