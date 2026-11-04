@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../models/makanan_model.dart';
-import '../../utils/app_colors.dart';
+import '../../../models/makanan_model.dart';
+import '../../../utils/app_colors.dart';
 
 class ItemMakanan extends StatelessWidget {
   final Makanan makanan;

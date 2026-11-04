@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../models/statistik_model.dart';
-import '../../utils/app_colors.dart';
+import '../../../models/statistik_model.dart';
+import '../../../utils/app_colors.dart';
 
 class StatusPesanan extends StatelessWidget {
   final Statistik statistik;
