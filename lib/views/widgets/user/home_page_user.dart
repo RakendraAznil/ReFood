@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../mahasiswa/order_history_page.dart';
 import '/controllers/makanan_controller.dart';
 import 'detail_makanan.dart';
 import '/models/makanan_model.dart';
@@ -29,34 +30,37 @@ class _HomePageUserState extends State<HomePageUser> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundApp,
+
       body: SafeArea(
         child: Column(
           children: [
             Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(18, 20, 18, 16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _header(),
-                    const SizedBox(height: 20),
-                    _saldoCard(),
-                    const SizedBox(height: 18),
-                    _searchBar(),
-                    const SizedBox(height: 20),
-                    const Text(
-                      'Makanan Diskon Hari Ini',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.textBlack,
+              child: selectedIndex == 1
+                  ? OrderHistoryPage(customerName: 'Mahasiswa')
+                  : SingleChildScrollView(
+                      padding: const EdgeInsets.fromLTRB(18, 20, 18, 16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          _header(),
+                          const SizedBox(height: 20),
+                          _saldoCard(),
+                          const SizedBox(height: 18),
+                          _searchBar(),
+                          const SizedBox(height: 20),
+                          const Text(
+                            'Makanan Diskon Hari Ini',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.textBlack,
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          _daftarMakanan(),
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 12),
-                    _daftarMakanan(),
-                  ],
-                ),
-              ),
             ),
             _bottomNavigation(),
           ],
@@ -344,18 +348,19 @@ class _HomePageUserState extends State<HomePageUser> {
 
     return InkWell(
       onTap: () {
+        if (index == 2) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Halaman Profile belum tersedia'),
+              duration: Duration(seconds: 1),
+            ),
+          );
+          return;
+        }
+
         setState(() {
           selectedIndex = index;
         });
-
-        if (index != 0) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text('Halaman $label belum tersedia'),
-              duration: const Duration(seconds: 1),
-            ),
-          );
-        }
       },
       child: SizedBox(
         width: 80,
